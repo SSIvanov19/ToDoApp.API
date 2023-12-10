@@ -43,10 +43,9 @@ internal class ToDoService : IToDoService
         return this.context.SaveChangesAsync();
     }
 
-    public async Task<IEnumerable<ToDoItemVM>> GetAllCrossedToDoItems()
+    public async Task<IEnumerable<ToDoItemVM>> GetAllToDoItems()
     {
         return await this.context.ToDoItems
-            .Where(x => x.IsChecked)
             .ProjectTo<ToDoItemVM>(this.mapper.ConfigurationProvider)
             .ToListAsync();
     }

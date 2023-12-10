@@ -17,21 +17,10 @@ namespace ToDoApp.WebHost.Controllers
         }
 
         [HttpGet]
-        [Route("crossed")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult<IEnumerable<ToDoItemVM>>> GetAllCrossedToDoItems()
         {
-            var toDoItems = await this.toDoService.GetAllCrossedToDoItems();
-
-            return this.Ok(toDoItems);
-        }
-
-        [HttpGet]
-        [Route("noncrossed")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<ActionResult<IEnumerable<ToDoItemVM>>> GetAllNonCrossedToDoItems()
-        {
-            var toDoItems = await this.toDoService.GetAllNonCrossedToDoItems();
+            var toDoItems = await this.toDoService.GetAllToDoItems();
 
             return this.Ok(toDoItems);
         }

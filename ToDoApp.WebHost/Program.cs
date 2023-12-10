@@ -26,11 +26,21 @@ builder.Services.AddServices();
 
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(builder =>
+        builder.WithOrigins("http://localhost:5173", "https://localhost:5173")
+            .AllowAnyMethod()
+            .AllowAnyHeader());
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
+
+app.UseCors();
 
 app.UseAuthorization();
 

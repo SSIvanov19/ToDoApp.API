@@ -7,9 +7,7 @@ public interface IToDoService
 {
     Task CreateToDoItemAsync(ToDoItemIM toDoItem);
 
-    Task<IEnumerable<ToDoItemVM>> GetAllCrossedToDoItems();
-
-    Task<IEnumerable<ToDoItemVM>> GetAllNonCrossedToDoItems();
+    Task<IEnumerable<ToDoItemVM>> GetAllToDoItems();
 
     Task CheckOutToDoItem(string id);
 }
